@@ -34,14 +34,14 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx)
             throws Exception {
-        System.out.println("SuperServer is connect " +  ctx.channel().remoteAddress().toString());
+        System.out.println("client is connect " +  ctx.channel().remoteAddress().toString());
         super.channelActive(ctx);
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx)
             throws Exception {
-        System.out.println("SuperServer is connect " +  ctx.channel().remoteAddress().toString());
+        System.out.println("client is connect " +  ctx.channel().remoteAddress().toString());
         client.reconnect(ctx.channel());
         super.channelInactive(ctx);
     }
