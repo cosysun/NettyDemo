@@ -1,5 +1,5 @@
-syntax = "proto2";
-option java_outer_classname = "HelloTest";//生成的数据访问类的类名
+package proto;
+option java_outer_classname = "HelloTest";
 
 message Hello {
     required string content = 1;//必须字段，在后面的使用中必须为该段设置值

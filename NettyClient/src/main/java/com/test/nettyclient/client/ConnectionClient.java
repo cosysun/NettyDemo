@@ -1,6 +1,5 @@
 package com.test.nettyclient.client;
 
-import com.test.nettyclient.proto.HelloTest;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.*;
 import io.netty.channel.*;
@@ -18,6 +17,11 @@ import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 import io.netty.handler.timeout.IdleStateHandler;
+import proto.Base;
+import proto.HelloTest;
+import proto.testdemo.Testdemo;
+
+import static proto.testdemo.Testdemo.helloReq;
 
 public class ConnectionClient {
 
@@ -94,7 +98,27 @@ public class ConnectionClient {
             ByteBuf buf = Unpooled.buffer();
             buf.writeBytes(packet);
             channel.writeAndFlush(buf);
+        }
+    }
 
+    public void sendMsg2(String msg) {
+        if (channel != null && channel.isOpen() && channel.isWritable()) {
+            // 打第一个message
+            Testdemo.HelloRequest.Builder reqBuilder = Testdemo.HelloRequest.newBuilder();
+            reqBuilder.setMessage(msg);
+            Testdemo.HelloRequest req = reqBuilder.build();
+
+            // 打extension
+            Base.TestDemoRequest.Builder testBuilder = Base.TestDemoRequest.newBuilder();
+            testBuilder.setExtension(helloReq, req);
+
+            // 打最外层的message
+            Base.PBDemo.Builder baseBuilder = Base.PBDemo.newBuilder();
+            Base.PBDemo pbDemo = baseBuilder.setTestdemoReq(testBuilder.build()).build();
+            byte[] packet = pbDemo.toByteArray();
+            ByteBuf buf = Unpooled.buffer();
+            buf.writeBytes(packet);
+            channel.writeAndFlush(buf);
         }
     }
 }

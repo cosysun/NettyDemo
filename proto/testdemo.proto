@@ -1,0 +1,23 @@
+package proto.testdemo;
+
+import "base.proto";
+
+extend TestDemoRequest
+{
+    optional HelloRequest hello_req = 101;
+}
+
+extend TestDemoResponse
+{
+    optional HelloResponse hello_rsp = 101;
+}
+
+message HelloRequest
+{
+    optional string message = 1;
+}
+
+message HelloResponse
+{
+    optional string message = 1;
+}

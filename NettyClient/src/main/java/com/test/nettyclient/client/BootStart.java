@@ -10,7 +10,8 @@ public class BootStart {
         ConnectionClient client = new ConnectionClient("127.0.0.1", 8090);
         client.connect();
         while (true) {
-            client.sendMsg("hello");
+            //client.sendMsg("hello");
+            client.sendMsg2("test");
             TimeUnit.SECONDS.sleep(2);
         }
     }

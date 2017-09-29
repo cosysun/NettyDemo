@@ -1,0 +1,21 @@
+package proto;
+
+
+// 包格式
+message PBDemo
+{
+    oneof body {
+        TestDemoRequest testdemo_req = 1;
+        TestDemoResponse testdemo_rsp = 2;
+    }
+}
+
+message TestDemoRequest
+{
+    extensions 100   to max;
+}
+
+message TestDemoResponse
+{
+    extensions 100   to max;
+}
