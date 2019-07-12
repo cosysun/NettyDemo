@@ -9,15 +9,18 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
+import pers.sun.nettyapi.consistenthash.ConsistentHashRouter;
 import pers.sun.nettyapi.handler.EchoHandler;
+import pers.sun.nettyapi.handler.MyServiceNode;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sungaozhao on 2/16/2016.
  */
 public class NormalNettyServer {
-    private int serverPort = 8090;
+    private int serverPort = 9090;
     private String serverIp = "127.0.0.1";
 
     public  NormalNettyServer(int port){

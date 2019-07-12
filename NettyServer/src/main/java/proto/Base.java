@@ -13,28 +13,41 @@ public final class Base {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>required .proto.DemoHead demoHead = 1;</code>
+     */
+    boolean hasDemoHead();
+    /**
+     * <code>required .proto.DemoHead demoHead = 1;</code>
+     */
+    proto.Base.DemoHead getDemoHead();
+    /**
+     * <code>required .proto.DemoHead demoHead = 1;</code>
+     */
+    proto.Base.DemoHeadOrBuilder getDemoHeadOrBuilder();
+
+    /**
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
      */
     boolean hasTestdemoReq();
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
      */
     proto.Base.TestDemoRequest getTestdemoReq();
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
      */
     proto.Base.TestDemoRequestOrBuilder getTestdemoReqOrBuilder();
 
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     boolean hasTestdemoRsp();
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     proto.Base.TestDemoResponse getTestdemoRsp();
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     proto.Base.TestDemoResponseOrBuilder getTestdemoRspOrBuilder();
   }
@@ -95,8 +108,21 @@ public final class Base {
               break;
             }
             case 10: {
+              proto.Base.DemoHead.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = demoHead_.toBuilder();
+              }
+              demoHead_ = input.readMessage(proto.Base.DemoHead.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(demoHead_);
+                demoHead_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
               proto.Base.TestDemoRequest.Builder subBuilder = null;
-              if (bodyCase_ == 1) {
+              if (bodyCase_ == 2) {
                 subBuilder = ((proto.Base.TestDemoRequest) body_).toBuilder();
               }
               body_ = input.readMessage(proto.Base.TestDemoRequest.PARSER, extensionRegistry);
@@ -104,12 +130,12 @@ public final class Base {
                 subBuilder.mergeFrom((proto.Base.TestDemoRequest) body_);
                 body_ = subBuilder.buildPartial();
               }
-              bodyCase_ = 1;
+              bodyCase_ = 2;
               break;
             }
-            case 18: {
+            case 26: {
               proto.Base.TestDemoResponse.Builder subBuilder = null;
-              if (bodyCase_ == 2) {
+              if (bodyCase_ == 3) {
                 subBuilder = ((proto.Base.TestDemoResponse) body_).toBuilder();
               }
               body_ = input.readMessage(proto.Base.TestDemoResponse.PARSER, extensionRegistry);
@@ -117,7 +143,7 @@ public final class Base {
                 subBuilder.mergeFrom((proto.Base.TestDemoResponse) body_);
                 body_ = subBuilder.buildPartial();
               }
-              bodyCase_ = 2;
+              bodyCase_ = 3;
               break;
             }
           }
@@ -164,8 +190,8 @@ public final class Base {
     private java.lang.Object body_;
     public enum BodyCase
         implements com.google.protobuf.Internal.EnumLite {
-      TESTDEMO_REQ(1),
-      TESTDEMO_RSP(2),
+      TESTDEMO_REQ(2),
+      TESTDEMO_RSP(3),
       BODY_NOT_SET(0);
       private int value = 0;
       private BodyCase(int value) {
@@ -173,8 +199,8 @@ public final class Base {
       }
       public static BodyCase valueOf(int value) {
         switch (value) {
-          case 1: return TESTDEMO_REQ;
-          case 2: return TESTDEMO_RSP;
+          case 2: return TESTDEMO_REQ;
+          case 3: return TESTDEMO_RSP;
           case 0: return BODY_NOT_SET;
           default: throw new java.lang.IllegalArgumentException(
             "Value is undefined for this oneof enum.");
@@ -191,59 +217,81 @@ public final class Base {
           bodyCase_);
     }
 
-    public static final int TESTDEMO_REQ_FIELD_NUMBER = 1;
+    public static final int DEMOHEAD_FIELD_NUMBER = 1;
+    private proto.Base.DemoHead demoHead_;
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>required .proto.DemoHead demoHead = 1;</code>
      */
-    public boolean hasTestdemoReq() {
-      return bodyCase_ == 1;
+    public boolean hasDemoHead() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>required .proto.DemoHead demoHead = 1;</code>
+     */
+    public proto.Base.DemoHead getDemoHead() {
+      return demoHead_;
+    }
+    /**
+     * <code>required .proto.DemoHead demoHead = 1;</code>
+     */
+    public proto.Base.DemoHeadOrBuilder getDemoHeadOrBuilder() {
+      return demoHead_;
+    }
+
+    public static final int TESTDEMO_REQ_FIELD_NUMBER = 2;
+    /**
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
+     */
+    public boolean hasTestdemoReq() {
+      return bodyCase_ == 2;
+    }
+    /**
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
      */
     public proto.Base.TestDemoRequest getTestdemoReq() {
-      if (bodyCase_ == 1) {
+      if (bodyCase_ == 2) {
          return (proto.Base.TestDemoRequest) body_;
       }
       return proto.Base.TestDemoRequest.getDefaultInstance();
     }
     /**
-     * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+     * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
      */
     public proto.Base.TestDemoRequestOrBuilder getTestdemoReqOrBuilder() {
-      if (bodyCase_ == 1) {
+      if (bodyCase_ == 2) {
          return (proto.Base.TestDemoRequest) body_;
       }
       return proto.Base.TestDemoRequest.getDefaultInstance();
     }
 
-    public static final int TESTDEMO_RSP_FIELD_NUMBER = 2;
+    public static final int TESTDEMO_RSP_FIELD_NUMBER = 3;
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     public boolean hasTestdemoRsp() {
-      return bodyCase_ == 2;
+      return bodyCase_ == 3;
     }
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     public proto.Base.TestDemoResponse getTestdemoRsp() {
-      if (bodyCase_ == 2) {
+      if (bodyCase_ == 3) {
          return (proto.Base.TestDemoResponse) body_;
       }
       return proto.Base.TestDemoResponse.getDefaultInstance();
     }
     /**
-     * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+     * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
      */
     public proto.Base.TestDemoResponseOrBuilder getTestdemoRspOrBuilder() {
-      if (bodyCase_ == 2) {
+      if (bodyCase_ == 3) {
          return (proto.Base.TestDemoResponse) body_;
       }
       return proto.Base.TestDemoResponse.getDefaultInstance();
     }
 
     private void initFields() {
+      demoHead_ = proto.Base.DemoHead.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -251,6 +299,14 @@ public final class Base {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasDemoHead()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getDemoHead().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (hasTestdemoReq()) {
         if (!getTestdemoReq().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -270,11 +326,14 @@ public final class Base {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (bodyCase_ == 1) {
-        output.writeMessage(1, (proto.Base.TestDemoRequest) body_);
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, demoHead_);
       }
       if (bodyCase_ == 2) {
-        output.writeMessage(2, (proto.Base.TestDemoResponse) body_);
+        output.writeMessage(2, (proto.Base.TestDemoRequest) body_);
+      }
+      if (bodyCase_ == 3) {
+        output.writeMessage(3, (proto.Base.TestDemoResponse) body_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -285,13 +344,17 @@ public final class Base {
       if (size != -1) return size;
 
       size = 0;
-      if (bodyCase_ == 1) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (proto.Base.TestDemoRequest) body_);
+          .computeMessageSize(1, demoHead_);
       }
       if (bodyCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (proto.Base.TestDemoResponse) body_);
+          .computeMessageSize(2, (proto.Base.TestDemoRequest) body_);
+      }
+      if (bodyCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (proto.Base.TestDemoResponse) body_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -406,6 +469,7 @@ public final class Base {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getDemoHeadFieldBuilder();
         }
       }
       private static Builder create() {
@@ -414,6 +478,12 @@ public final class Base {
 
       public Builder clear() {
         super.clear();
+        if (demoHeadBuilder_ == null) {
+          demoHead_ = proto.Base.DemoHead.getDefaultInstance();
+        } else {
+          demoHeadBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -444,14 +514,22 @@ public final class Base {
         proto.Base.PBDemo result = new proto.Base.PBDemo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (bodyCase_ == 1) {
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (demoHeadBuilder_ == null) {
+          result.demoHead_ = demoHead_;
+        } else {
+          result.demoHead_ = demoHeadBuilder_.build();
+        }
+        if (bodyCase_ == 2) {
           if (testdemoReqBuilder_ == null) {
             result.body_ = body_;
           } else {
             result.body_ = testdemoReqBuilder_.build();
           }
         }
-        if (bodyCase_ == 2) {
+        if (bodyCase_ == 3) {
           if (testdemoRspBuilder_ == null) {
             result.body_ = body_;
           } else {
@@ -475,6 +553,9 @@ public final class Base {
 
       public Builder mergeFrom(proto.Base.PBDemo other) {
         if (other == proto.Base.PBDemo.getDefaultInstance()) return this;
+        if (other.hasDemoHead()) {
+          mergeDemoHead(other.getDemoHead());
+        }
         switch (other.getBodyCase()) {
           case TESTDEMO_REQ: {
             mergeTestdemoReq(other.getTestdemoReq());
@@ -493,6 +574,14 @@ public final class Base {
       }
 
       public final boolean isInitialized() {
+        if (!hasDemoHead()) {
+          
+          return false;
+        }
+        if (!getDemoHead().isInitialized()) {
+          
+          return false;
+        }
         if (hasTestdemoReq()) {
           if (!getTestdemoReq().isInitialized()) {
             
@@ -542,32 +631,148 @@ public final class Base {
 
       private int bitField0_;
 
+      private proto.Base.DemoHead demoHead_ = proto.Base.DemoHead.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          proto.Base.DemoHead, proto.Base.DemoHead.Builder, proto.Base.DemoHeadOrBuilder> demoHeadBuilder_;
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public boolean hasDemoHead() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public proto.Base.DemoHead getDemoHead() {
+        if (demoHeadBuilder_ == null) {
+          return demoHead_;
+        } else {
+          return demoHeadBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public Builder setDemoHead(proto.Base.DemoHead value) {
+        if (demoHeadBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          demoHead_ = value;
+          onChanged();
+        } else {
+          demoHeadBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public Builder setDemoHead(
+          proto.Base.DemoHead.Builder builderForValue) {
+        if (demoHeadBuilder_ == null) {
+          demoHead_ = builderForValue.build();
+          onChanged();
+        } else {
+          demoHeadBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public Builder mergeDemoHead(proto.Base.DemoHead value) {
+        if (demoHeadBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              demoHead_ != proto.Base.DemoHead.getDefaultInstance()) {
+            demoHead_ =
+              proto.Base.DemoHead.newBuilder(demoHead_).mergeFrom(value).buildPartial();
+          } else {
+            demoHead_ = value;
+          }
+          onChanged();
+        } else {
+          demoHeadBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public Builder clearDemoHead() {
+        if (demoHeadBuilder_ == null) {
+          demoHead_ = proto.Base.DemoHead.getDefaultInstance();
+          onChanged();
+        } else {
+          demoHeadBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public proto.Base.DemoHead.Builder getDemoHeadBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getDemoHeadFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      public proto.Base.DemoHeadOrBuilder getDemoHeadOrBuilder() {
+        if (demoHeadBuilder_ != null) {
+          return demoHeadBuilder_.getMessageOrBuilder();
+        } else {
+          return demoHead_;
+        }
+      }
+      /**
+       * <code>required .proto.DemoHead demoHead = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          proto.Base.DemoHead, proto.Base.DemoHead.Builder, proto.Base.DemoHeadOrBuilder> 
+          getDemoHeadFieldBuilder() {
+        if (demoHeadBuilder_ == null) {
+          demoHeadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              proto.Base.DemoHead, proto.Base.DemoHead.Builder, proto.Base.DemoHeadOrBuilder>(
+                  getDemoHead(),
+                  getParentForChildren(),
+                  isClean());
+          demoHead_ = null;
+        }
+        return demoHeadBuilder_;
+      }
+
       private com.google.protobuf.SingleFieldBuilder<
           proto.Base.TestDemoRequest, proto.Base.TestDemoRequest.Builder, proto.Base.TestDemoRequestOrBuilder> testdemoReqBuilder_;
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public boolean hasTestdemoReq() {
-        return bodyCase_ == 1;
+        return bodyCase_ == 2;
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public proto.Base.TestDemoRequest getTestdemoReq() {
         if (testdemoReqBuilder_ == null) {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             return (proto.Base.TestDemoRequest) body_;
           }
           return proto.Base.TestDemoRequest.getDefaultInstance();
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             return testdemoReqBuilder_.getMessage();
           }
           return proto.Base.TestDemoRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public Builder setTestdemoReq(proto.Base.TestDemoRequest value) {
         if (testdemoReqBuilder_ == null) {
@@ -579,11 +784,11 @@ public final class Base {
         } else {
           testdemoReqBuilder_.setMessage(value);
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public Builder setTestdemoReq(
           proto.Base.TestDemoRequest.Builder builderForValue) {
@@ -593,15 +798,15 @@ public final class Base {
         } else {
           testdemoReqBuilder_.setMessage(builderForValue.build());
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public Builder mergeTestdemoReq(proto.Base.TestDemoRequest value) {
         if (testdemoReqBuilder_ == null) {
-          if (bodyCase_ == 1 &&
+          if (bodyCase_ == 2 &&
               body_ != proto.Base.TestDemoRequest.getDefaultInstance()) {
             body_ = proto.Base.TestDemoRequest.newBuilder((proto.Base.TestDemoRequest) body_)
                 .mergeFrom(value).buildPartial();
@@ -610,26 +815,26 @@ public final class Base {
           }
           onChanged();
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             testdemoReqBuilder_.mergeFrom(value);
           }
           testdemoReqBuilder_.setMessage(value);
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public Builder clearTestdemoReq() {
         if (testdemoReqBuilder_ == null) {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             bodyCase_ = 0;
             body_ = null;
             onChanged();
           }
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             bodyCase_ = 0;
             body_ = null;
           }
@@ -638,32 +843,32 @@ public final class Base {
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public proto.Base.TestDemoRequest.Builder getTestdemoReqBuilder() {
         return getTestdemoReqFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       public proto.Base.TestDemoRequestOrBuilder getTestdemoReqOrBuilder() {
-        if ((bodyCase_ == 1) && (testdemoReqBuilder_ != null)) {
+        if ((bodyCase_ == 2) && (testdemoReqBuilder_ != null)) {
           return testdemoReqBuilder_.getMessageOrBuilder();
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             return (proto.Base.TestDemoRequest) body_;
           }
           return proto.Base.TestDemoRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .proto.TestDemoRequest testdemo_req = 1;</code>
+       * <code>optional .proto.TestDemoRequest testdemo_req = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           proto.Base.TestDemoRequest, proto.Base.TestDemoRequest.Builder, proto.Base.TestDemoRequestOrBuilder> 
           getTestdemoReqFieldBuilder() {
         if (testdemoReqBuilder_ == null) {
-          if (!(bodyCase_ == 1)) {
+          if (!(bodyCase_ == 2)) {
             body_ = proto.Base.TestDemoRequest.getDefaultInstance();
           }
           testdemoReqBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -673,36 +878,36 @@ public final class Base {
                   isClean());
           body_ = null;
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return testdemoReqBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilder<
           proto.Base.TestDemoResponse, proto.Base.TestDemoResponse.Builder, proto.Base.TestDemoResponseOrBuilder> testdemoRspBuilder_;
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public boolean hasTestdemoRsp() {
-        return bodyCase_ == 2;
+        return bodyCase_ == 3;
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public proto.Base.TestDemoResponse getTestdemoRsp() {
         if (testdemoRspBuilder_ == null) {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             return (proto.Base.TestDemoResponse) body_;
           }
           return proto.Base.TestDemoResponse.getDefaultInstance();
         } else {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             return testdemoRspBuilder_.getMessage();
           }
           return proto.Base.TestDemoResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public Builder setTestdemoRsp(proto.Base.TestDemoResponse value) {
         if (testdemoRspBuilder_ == null) {
@@ -714,11 +919,11 @@ public final class Base {
         } else {
           testdemoRspBuilder_.setMessage(value);
         }
-        bodyCase_ = 2;
+        bodyCase_ = 3;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public Builder setTestdemoRsp(
           proto.Base.TestDemoResponse.Builder builderForValue) {
@@ -728,15 +933,15 @@ public final class Base {
         } else {
           testdemoRspBuilder_.setMessage(builderForValue.build());
         }
-        bodyCase_ = 2;
+        bodyCase_ = 3;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public Builder mergeTestdemoRsp(proto.Base.TestDemoResponse value) {
         if (testdemoRspBuilder_ == null) {
-          if (bodyCase_ == 2 &&
+          if (bodyCase_ == 3 &&
               body_ != proto.Base.TestDemoResponse.getDefaultInstance()) {
             body_ = proto.Base.TestDemoResponse.newBuilder((proto.Base.TestDemoResponse) body_)
                 .mergeFrom(value).buildPartial();
@@ -745,26 +950,26 @@ public final class Base {
           }
           onChanged();
         } else {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             testdemoRspBuilder_.mergeFrom(value);
           }
           testdemoRspBuilder_.setMessage(value);
         }
-        bodyCase_ = 2;
+        bodyCase_ = 3;
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public Builder clearTestdemoRsp() {
         if (testdemoRspBuilder_ == null) {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             bodyCase_ = 0;
             body_ = null;
             onChanged();
           }
         } else {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             bodyCase_ = 0;
             body_ = null;
           }
@@ -773,32 +978,32 @@ public final class Base {
         return this;
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public proto.Base.TestDemoResponse.Builder getTestdemoRspBuilder() {
         return getTestdemoRspFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       public proto.Base.TestDemoResponseOrBuilder getTestdemoRspOrBuilder() {
-        if ((bodyCase_ == 2) && (testdemoRspBuilder_ != null)) {
+        if ((bodyCase_ == 3) && (testdemoRspBuilder_ != null)) {
           return testdemoRspBuilder_.getMessageOrBuilder();
         } else {
-          if (bodyCase_ == 2) {
+          if (bodyCase_ == 3) {
             return (proto.Base.TestDemoResponse) body_;
           }
           return proto.Base.TestDemoResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .proto.TestDemoResponse testdemo_rsp = 2;</code>
+       * <code>optional .proto.TestDemoResponse testdemo_rsp = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           proto.Base.TestDemoResponse, proto.Base.TestDemoResponse.Builder, proto.Base.TestDemoResponseOrBuilder> 
           getTestdemoRspFieldBuilder() {
         if (testdemoRspBuilder_ == null) {
-          if (!(bodyCase_ == 2)) {
+          if (!(bodyCase_ == 3)) {
             body_ = proto.Base.TestDemoResponse.getDefaultInstance();
           }
           testdemoRspBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -808,7 +1013,7 @@ public final class Base {
                   isClean());
           body_ = null;
         }
-        bodyCase_ = 2;
+        bodyCase_ = 3;
         return testdemoRspBuilder_;
       }
 
@@ -821,6 +1026,583 @@ public final class Base {
     }
 
     // @@protoc_insertion_point(class_scope:proto.PBDemo)
+  }
+
+  public interface DemoHeadOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.DemoHead)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 cmd = 1;</code>
+     */
+    boolean hasCmd();
+    /**
+     * <code>required int32 cmd = 1;</code>
+     */
+    int getCmd();
+
+    /**
+     * <code>required int32 subcmd = 2;</code>
+     */
+    boolean hasSubcmd();
+    /**
+     * <code>required int32 subcmd = 2;</code>
+     */
+    int getSubcmd();
+
+    /**
+     * <code>required int32 id = 3;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 3;</code>
+     */
+    int getId();
+  }
+  /**
+   * Protobuf type {@code proto.DemoHead}
+   */
+  public static final class DemoHead extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:proto.DemoHead)
+      DemoHeadOrBuilder {
+    // Use DemoHead.newBuilder() to construct.
+    private DemoHead(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DemoHead(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DemoHead defaultInstance;
+    public static DemoHead getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DemoHead getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DemoHead(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              cmd_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              subcmd_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              id_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Base.internal_static_proto_DemoHead_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Base.internal_static_proto_DemoHead_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Base.DemoHead.class, proto.Base.DemoHead.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<DemoHead> PARSER =
+        new com.google.protobuf.AbstractParser<DemoHead>() {
+      public DemoHead parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DemoHead(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DemoHead> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int CMD_FIELD_NUMBER = 1;
+    private int cmd_;
+    /**
+     * <code>required int32 cmd = 1;</code>
+     */
+    public boolean hasCmd() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 cmd = 1;</code>
+     */
+    public int getCmd() {
+      return cmd_;
+    }
+
+    public static final int SUBCMD_FIELD_NUMBER = 2;
+    private int subcmd_;
+    /**
+     * <code>required int32 subcmd = 2;</code>
+     */
+    public boolean hasSubcmd() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 subcmd = 2;</code>
+     */
+    public int getSubcmd() {
+      return subcmd_;
+    }
+
+    public static final int ID_FIELD_NUMBER = 3;
+    private int id_;
+    /**
+     * <code>required int32 id = 3;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 id = 3;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    private void initFields() {
+      cmd_ = 0;
+      subcmd_ = 0;
+      id_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCmd()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSubcmd()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, cmd_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, subcmd_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, cmd_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, subcmd_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static proto.Base.DemoHead parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Base.DemoHead parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Base.DemoHead parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Base.DemoHead parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Base.DemoHead parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static proto.Base.DemoHead parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static proto.Base.DemoHead parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static proto.Base.DemoHead parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static proto.Base.DemoHead parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static proto.Base.DemoHead parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(proto.Base.DemoHead prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.DemoHead}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.DemoHead)
+        proto.Base.DemoHeadOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Base.internal_static_proto_DemoHead_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Base.internal_static_proto_DemoHead_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Base.DemoHead.class, proto.Base.DemoHead.Builder.class);
+      }
+
+      // Construct using proto.Base.DemoHead.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        cmd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        subcmd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Base.internal_static_proto_DemoHead_descriptor;
+      }
+
+      public proto.Base.DemoHead getDefaultInstanceForType() {
+        return proto.Base.DemoHead.getDefaultInstance();
+      }
+
+      public proto.Base.DemoHead build() {
+        proto.Base.DemoHead result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public proto.Base.DemoHead buildPartial() {
+        proto.Base.DemoHead result = new proto.Base.DemoHead(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.cmd_ = cmd_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.subcmd_ = subcmd_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.id_ = id_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Base.DemoHead) {
+          return mergeFrom((proto.Base.DemoHead)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Base.DemoHead other) {
+        if (other == proto.Base.DemoHead.getDefaultInstance()) return this;
+        if (other.hasCmd()) {
+          setCmd(other.getCmd());
+        }
+        if (other.hasSubcmd()) {
+          setSubcmd(other.getSubcmd());
+        }
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCmd()) {
+          
+          return false;
+        }
+        if (!hasSubcmd()) {
+          
+          return false;
+        }
+        if (!hasId()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Base.DemoHead parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Base.DemoHead) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int cmd_ ;
+      /**
+       * <code>required int32 cmd = 1;</code>
+       */
+      public boolean hasCmd() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 cmd = 1;</code>
+       */
+      public int getCmd() {
+        return cmd_;
+      }
+      /**
+       * <code>required int32 cmd = 1;</code>
+       */
+      public Builder setCmd(int value) {
+        bitField0_ |= 0x00000001;
+        cmd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 cmd = 1;</code>
+       */
+      public Builder clearCmd() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        cmd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int subcmd_ ;
+      /**
+       * <code>required int32 subcmd = 2;</code>
+       */
+      public boolean hasSubcmd() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 subcmd = 2;</code>
+       */
+      public int getSubcmd() {
+        return subcmd_;
+      }
+      /**
+       * <code>required int32 subcmd = 2;</code>
+       */
+      public Builder setSubcmd(int value) {
+        bitField0_ |= 0x00000002;
+        subcmd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 subcmd = 2;</code>
+       */
+      public Builder clearSubcmd() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        subcmd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>required int32 id = 3;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 id = 3;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required int32 id = 3;</code>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000004;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 id = 3;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.DemoHead)
+    }
+
+    static {
+      defaultInstance = new DemoHead(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.DemoHead)
   }
 
   public interface TestDemoRequestOrBuilder extends
@@ -1489,6 +2271,11 @@ public final class Base {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_PBDemo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_DemoHead_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_DemoHead_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_TestDemoRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1507,11 +2294,14 @@ public final class Base {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nbase.proto\022\005proto\"q\n\006PBDemo\022.\n\014testdem" +
-      "o_req\030\001 \001(\0132\026.proto.TestDemoRequestH\000\022/\n" +
-      "\014testdemo_rsp\030\002 \001(\0132\027.proto.TestDemoResp" +
-      "onseH\000B\006\n\004body\"\033\n\017TestDemoRequest*\010\010d\020\200\200" +
-      "\200\200\002\"\034\n\020TestDemoResponse*\010\010d\020\200\200\200\200\002"
+      "\n\nbase.proto\022\005proto\"\224\001\n\006PBDemo\022!\n\010demoHe" +
+      "ad\030\001 \002(\0132\017.proto.DemoHead\022.\n\014testdemo_re" +
+      "q\030\002 \001(\0132\026.proto.TestDemoRequestH\000\022/\n\014tes" +
+      "tdemo_rsp\030\003 \001(\0132\027.proto.TestDemoResponse" +
+      "H\000B\006\n\004body\"3\n\010DemoHead\022\013\n\003cmd\030\001 \002(\005\022\016\n\006s" +
+      "ubcmd\030\002 \002(\005\022\n\n\002id\030\003 \002(\005\"\033\n\017TestDemoReque" +
+      "st*\010\010d\020\200\200\200\200\002\"\034\n\020TestDemoResponse*\010\010d\020\200\200\200" +
+      "\200\002"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1530,15 +2320,21 @@ public final class Base {
     internal_static_proto_PBDemo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_proto_PBDemo_descriptor,
-        new java.lang.String[] { "TestdemoReq", "TestdemoRsp", "Body", });
-    internal_static_proto_TestDemoRequest_descriptor =
+        new java.lang.String[] { "DemoHead", "TestdemoReq", "TestdemoRsp", "Body", });
+    internal_static_proto_DemoHead_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_proto_DemoHead_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_proto_DemoHead_descriptor,
+        new java.lang.String[] { "Cmd", "Subcmd", "Id", });
+    internal_static_proto_TestDemoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_proto_TestDemoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_proto_TestDemoRequest_descriptor,
         new java.lang.String[] { });
     internal_static_proto_TestDemoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_proto_TestDemoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_proto_TestDemoResponse_descriptor,

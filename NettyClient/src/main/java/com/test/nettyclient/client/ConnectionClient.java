@@ -112,9 +112,17 @@ public class ConnectionClient {
             Base.TestDemoRequest.Builder testBuilder = Base.TestDemoRequest.newBuilder();
             testBuilder.setExtension(helloReq, req);
 
+            Base.DemoHead.Builder headBuilder = Base.DemoHead.newBuilder();
+            headBuilder.setCmd(1);
+            headBuilder.setSubcmd(1);
+            headBuilder.setId((new Double((Math.random() * 100))).intValue());
+
             // 打最外层的message
             Base.PBDemo.Builder baseBuilder = Base.PBDemo.newBuilder();
-            Base.PBDemo pbDemo = baseBuilder.setTestdemoReq(testBuilder.build()).build();
+            baseBuilder.setTestdemoReq(testBuilder.build());
+            baseBuilder.setDemoHead(headBuilder.build());
+            Base.PBDemo pbDemo = baseBuilder.build();
+
             byte[] packet = pbDemo.toByteArray();
             ByteBuf buf = Unpooled.buffer();
             buf.writeBytes(packet);
